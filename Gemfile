@@ -26,6 +26,8 @@ gem 'pg', '~> 0.18.2'
 # Begin realtime installation
 gem 'realtime', '~> 0.0.12'
 
+gem 'capistrano', '~> 3.4.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
