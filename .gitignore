@@ -16,4 +16,7 @@
 !/log/.keep
 /tmp
 .vagrant/
-./**/*.swp
+*.swp
+*.swo
+*~
+config/chef/nodes/127.0.0.10.json
