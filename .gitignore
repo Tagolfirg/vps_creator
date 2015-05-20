@@ -22,3 +22,4 @@
 config/chef/nodes/127.0.0.10.json
 .*.swp
 .Gemfile.swp
+config/chef/nodes/127.0.0.1.json
