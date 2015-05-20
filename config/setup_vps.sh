@@ -15,7 +15,7 @@ PORT=$3
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@$IP
 
 # install chef
-cd config/chef && knife solo prepare root@$IP
+# cd config/chef && knife solo prepare root@$IP
 
 # execute the run list
 knife solo cook root@$IP
@@ -24,7 +24,8 @@ knife solo cook root@$IP
 ssh-copy-id -i ~/.ssh/id_rsa.pub -p $PORT $USER@$IP
 
 # upload app
-cd ../.. && cap production setup:all
+# jet for now we will not be deploying to remote, so below commented out
+# cd ../.. && cap production setup:all
 
 # restart nginx
 ssh -p $PORT -t $USER@$IP 'sudo service nginx restart'

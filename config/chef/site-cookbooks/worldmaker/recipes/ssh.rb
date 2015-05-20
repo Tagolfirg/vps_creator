@@ -5,14 +5,14 @@ service 'ssh' do
 end
 
 # modify port
-bash "modify port" do
-  code <<-EOH
-    sed -i '/Port.*/d' /etc/ssh/sshd_config
-    echo 'Port #{node['port']}' >> /etc/ssh/sshd_config
-  EOH
-  notifies :restart, "service[ssh]", :delayed
-  not_if "grep -xq 'Port #{node['port']}' /etc/ssh/sshd_config"
-end
+# bash "modify port" do
+#   code <<-EOH
+#     sed -i '/Port.*/d' /etc/ssh/sshd_config
+#     echo 'Port #{node['port']}' >> /etc/ssh/sshd_config
+#   EOH
+#   notifies :restart, "service[ssh]", :delayed
+#   not_if "grep -xq 'Port #{node['port']}' /etc/ssh/sshd_config"
+# end
 
 # disable root login
 bash "disable root login" do
@@ -25,14 +25,14 @@ bash "disable root login" do
 end
 
 # restrict login only to created user
-bash "restrict login only to created user" do
-  code <<-EOH
-    sed -i '/AllowUsers.*/d' /etc/ssh/sshd_config
-    echo 'AllowUsers #{node['user']['name']}' >> /etc/ssh/sshd_config
-  EOH
-  notifies :restart, "service[ssh]", :delayed
-  not_if "grep -xq 'AllowUsers #{node['user']['name']}' /etc/ssh/sshd_config"
-end
+# bash "restrict login only to created user" do
+#   code <<-EOH
+#     sed -i '/AllowUsers.*/d' /etc/ssh/sshd_config
+#     echo 'AllowUsers #{node['user']['name']}' >> /etc/ssh/sshd_config
+#   EOH
+#   notifies :restart, "service[ssh]", :delayed
+#   not_if "grep -xq 'AllowUsers #{node['user']['name']}' /etc/ssh/sshd_config"
+# end
 
 # disable dns
 bash "disable dns" do

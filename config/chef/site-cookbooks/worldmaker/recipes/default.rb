@@ -8,8 +8,8 @@
 #
 
 
-update package database
-execute "apt-get update"
+# update package database
+# execute "apt-get update"
 
 # install packages
 package "postfix"
